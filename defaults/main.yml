@@ -1,0 +1,15 @@
+---
+git_folder: "/tmp/esrally"
+config_version: "8"
+env_name: "rally"
+java8_home: "/usr/lib/jvm/java-8-openjdk-amd64"
+#local.dataset.cache: "${node:root.dir}/data"
+datastore_type: "elasticsearch"
+datastore_host: "search-esrally-b54sccy4lyuigww6a4hgvumczi.us-east-2.es.amazonaws.com"
+datastore_port: "80"
+datastore_secure: "False"
+datastore_user: ""
+datastore_password: ""
+default_track_url: "https://github.com/elastic/rally-tracks"
+preserve_benchmark_candidate: "True"
+...

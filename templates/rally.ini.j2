@@ -1,0 +1,28 @@
+[meta]
+config.version = {{ config_version }}
+
+[system]
+env.name = {{ env_name }}
+
+[node]
+root.dir = /root/.rally/benchmarks
+
+[runtime]
+java8.home = {{ java8_home }}
+
+[benchmarks]
+local.dataset.cache = {{ '${node:root.dir}/data' }}
+
+[reporting]
+datastore.type = {{ datastore_type }}
+datastore.host = {{ datastore_host }}
+datastore.port = {{ datastore_port }}
+datastore.secure = {{datastore_secure }}
+datastore.user = {{ datastore_user }}
+datastore.password = {{ datastore_password }}
+
+[tracks]
+default.url = {{ default_track_url }}
+
+[defaults]
+preserve_benchmark_candidate = {{ preserve_benchmark_candidate }}

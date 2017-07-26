@@ -1,0 +1,41 @@
+---
+- name: include
+  include_role:
+    name: custom_modules
+
+- name: Include java
+  include_role:
+    name: geerlingguy.java
+
+- name: Include gradle
+  include_role:
+    name: shelleg.gradle
+  vars:
+    gradle_version_minor: 5
+
+- name: Install git
+  package:
+    name: git
+    state: latest
+
+- name: Install pip3
+  package:
+    name: python3-pip
+    state: latest
+
+- name: Install
+  pip:
+    name: esrally
+    executable: pip3
+
+- name: Create rally config folder
+  file:
+    path: /root/.rally
+    state: directory
+    mode: 0755
+
+- name: Use correct config
+  template:
+    src: rally.ini.j2
+    dest: /root/.rally/rally.ini
+...
