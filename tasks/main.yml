@@ -1,8 +1,4 @@
 ---
-- name: include
-  include_role:
-    name: custom_modules
-
 - name: Include java
   include_role:
     name: geerlingguy.java
