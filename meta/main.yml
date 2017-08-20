@@ -13,7 +13,8 @@ galaxy_info:
   - elasticsearch
   - aws
   - cloud
-  
+
 dependencies:
   - geerlingguy.java
+  - shelleg.gradle
 ...
