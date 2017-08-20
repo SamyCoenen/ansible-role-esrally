@@ -31,7 +31,6 @@ Dependencies
 ------------
 
   - geerlingguy.java
-  - shelleg.gradle
 
 Example Playbook
 ----------------

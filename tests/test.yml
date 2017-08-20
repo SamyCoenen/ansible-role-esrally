@@ -1,5 +1,5 @@
 ---
 - hosts: all
   roles:
-    - esrally
+    - role_under_test
 ...
