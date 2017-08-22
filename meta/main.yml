@@ -16,5 +16,7 @@ galaxy_info:
 
 dependencies:
   - geerlingguy.java
+  - geerlingguy.repo-epel
+  - geerlingguy.pip
   - shelleg.gradle
 ...
