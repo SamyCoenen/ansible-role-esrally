@@ -6,21 +6,39 @@
   with_items:
     - gcc
     - git
-    - python3-pip
 
-- name: Install esrally with pip
+- name: Install pip3 on Debian
+  package:
+    name: python3-pip
+    state: latest
+  when: "ansible_os_family == 'Debian'"
+
+- name: Install pip-3 on Redhat
+  package:
+    name: python34-pip
+    state: latest
+  when: "ansible_os_family == 'Redhat'"
+
+- name: Install esrally with pip on Debian
   pip:
     name: esrally
     executable: pip3
+  when: "ansible_os_family == 'Debian'"
 
-- name: Create rally config folder
-  file:
-    path: /root/.rally
-    state: directory
-    mode: 0755
+- name: Install esrally with pip on Redhat
+  pip:
+    name: esrally
+    executable: pip3.4
+  when: "ansible_os_family == 'Redhat'"
 
-- name: Use correct config
-  template:
-    src: rally.ini.j2
-    dest: /root/.rally/rally.ini
+# - name: Create rally config folder
+#   file:
+#     path: /root/.rally
+#     state: directory
+#     mode: 0755
+#
+# - name: Use correct config
+#   template:
+#     src: rally.ini.j2
+#     dest: /root/.rally/rally.ini
 ...
