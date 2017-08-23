@@ -1,7 +1,7 @@
 Ansible Role: Rally
 =========
 
-[![Build Status](https://travis-ci.org/samycoenen/ansible-role-esrally.svg?branch=master)](https://travis-ci.org/samycoenen/ansible-role-esrally)
+[![Build Status](https://travis-ci.org/SamyCoenen/ansible-role-esrally.svg?branch=master)](https://travis-ci.org/SamyCoenen/ansible-role-esrally)
 
 Install Rally, the benchmarking tool for Elasticsearch from Elastic. Compatible with RHEL/CentOS, Debian/Ubuntu servers.
 
@@ -32,6 +32,7 @@ Dependencies
 
   - geerlingguy.java
   - shelleg.gradle
+  - geerlingguy.repo-epel
 
 Example Playbook
 ----------------

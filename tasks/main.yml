@@ -1,42 +1,17 @@
 ---
 - name: Install gcc and git
   package:
-    name: gcc git
+    name: "{{ item }}"
     state: latest
-
-- name: Install epel release
-  include_role:
-    name: geerlingguy.repo-epel
-  when: "ansible_os_family == 'Redhat'"
-
-- name: Install Openjdk Java 8
-  include_role:
-    name: geerlingguy.java
-  vars:
-    java_packages:
-      - java-1.8.0-openjdk
-  when: "ansible_os_family == 'Redhat'"
-
-- name: Install Openjdk Java 8
-  include_role:
-    name: geerlingguy.java
-  vars:
-    java_packages:
-      - openjdk-8-jdk
-  when: "ansible_os_family == 'Debian'"
-
-- name: Install Gradle
-  include_role:
-    name: shelleg.gradle
-  vars:
-    gradle_version_minor: 5
+  with_items:
+    - gcc
+    - git
+    - python3-pip
 
 - name: Install esrally with pip
-  include_role:
-    name: geerlingguy.pip
-  vars:
-    pip_install_packages:
-      - esrally
+  pip:
+    name: esrally
+    executable: pip3
 
 - name: Create rally config folder
   file:
