@@ -33,7 +33,7 @@
 
 - name: Install esrally with pip
   include_role:
-    - geerlingguy.pip
+    name: geerlingguy.pip
   vars:
     pip_install_packages:
       - esrally
