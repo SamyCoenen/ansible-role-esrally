@@ -8,9 +8,12 @@
 
 - name: Install pip-3 on Redhat
   package:
-    name: python3-devel
+    name: "{{ item }}"
     state: latest
     enablerepo: epel
+  with_items:
+    - redhat-rpm-config
+    - python3-devel
   when: ansible_pkg_mgr == 'dnf'
 
 
