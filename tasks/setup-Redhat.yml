@@ -1,11 +1,18 @@
 ---
 - name: Install pip-3 on Redhat
   package:
-    name: "{{ item }}"
+    name: python34-devel
     state: latest
     enablerepo: epel
-  with_items:
-    - python34-devel
+  when: ansible_pkg_mgr == 'yum'
+
+- name: Install pip-3 on Redhat
+  package:
+    name: python3-devel
+    state: latest
+    enablerepo: epel
+  when: ansible_pkg_mgr == 'dnf'
+
 
 - include: install-pip.yml
   when: ansible_os_family == 'RedHat'
