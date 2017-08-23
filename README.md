@@ -31,7 +31,6 @@ Dependencies
 ------------
 
   - geerlingguy.java
-  - geerlingguy.repo-epel
 
 Example Playbook
 ----------------

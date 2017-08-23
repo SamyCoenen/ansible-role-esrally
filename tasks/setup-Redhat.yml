@@ -3,6 +3,7 @@
   package:
     name: "{{ item }}"
     state: latest
+    enablerepo: epel
   with_items:
     - python34-devel
 
@@ -13,5 +14,4 @@
   pip:
     name: esrally
     executable: pip3
-
 ...

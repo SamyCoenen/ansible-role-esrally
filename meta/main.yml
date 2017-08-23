@@ -6,14 +6,24 @@ galaxy_info:
   license: license (EUPLv1.1)
   min_ansible_version: 2.2
   platforms:
-  - name: Ubuntu
-    versions:
-    - xenial
+    - name: EL
+      versions:
+      - 6
+      - 7
+    - name: Fedora
+      versions:
+      - 24
+    - name: Debian
+      versions:
+      - 8
+    - name: Ubuntu
+      versions:
+      - trusty
+      - xenial
   galaxy_tags:
   - elasticsearch
   - aws
   - cloud
 
-dependencies:
-  - { role: 'geerlingguy.repo-epel', when: "ansible_os_family == 'RedHat'"}
+dependencies: []
 ...
