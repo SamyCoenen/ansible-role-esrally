@@ -1,0 +1,15 @@
+---
+- name: Install pip-3 on Redhat
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - python34-devel
+    - python34-pip
+
+- name: Install esrally with pip on Redhat
+  pip:
+    name: esrally
+    executable: pip3.4
+
+...

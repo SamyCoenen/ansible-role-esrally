@@ -1,8 +1,4 @@
 ---
-- name: Update apt cache.
-  apt: update_cache=yes cache_valid_time=86400
-  when: "ansible_os_family == 'Debian'"
-  
 - name: Install gcc and git
   package:
     name: "{{ item }}"
@@ -11,29 +7,15 @@
     - gcc
     - git
 
-- name: Install pip3 on Debian
-  package:
-    name: python3-pip
-    state: latest
-  when: "ansible_os_family == 'Debian'"
+- include: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
 
-- name: Install pip-3 on Redhat
-  package:
-    name: python34-pip
-    state: latest
-  when: "ansible_os_family == 'Redhat'"
+- include: setup-Redhat.yml
+  when: ansible_os_family == 'Redhat'
 
-- name: Install esrally with pip on Debian
-  pip:
-    name: esrally
-    executable: pip3
-  when: "ansible_os_family == 'Debian'"
-
-- name: Install esrally with pip on Redhat
-  pip:
-    name: esrally
-    executable: pip3.4
-  when: "ansible_os_family == 'Redhat'"
+- name: Include java
+  include_role:
+    name: geerlingguy.java
 
 - name: Create rally config folder
   file:
