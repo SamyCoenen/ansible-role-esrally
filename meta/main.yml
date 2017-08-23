@@ -15,5 +15,5 @@ galaxy_info:
   - cloud
 
 dependencies:
-  - { role: 'geerlingguy.repo-epel', when: "ansible_os_family == 'Redhat'"}
+  - { role: 'geerlingguy.repo-epel', when: "ansible_os_family == 'RedHat'"}
 ...

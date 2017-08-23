@@ -1,4 +1,8 @@
 ---
+- name: Update apt cache.
+  apt: update_cache=yes cache_valid_time=86400
+  when: ansible_os_family == 'Debian'
+
 - name: Install gcc and git
   package:
     name: "{{ item }}"
@@ -11,7 +15,7 @@
   when: ansible_os_family == 'Debian'
 
 - include: setup-Redhat.yml
-  when: ansible_os_family == 'Redhat'
+  when: ansible_os_family == 'RedHat'
 
 - name: Include java
   include_role:

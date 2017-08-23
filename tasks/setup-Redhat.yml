@@ -5,11 +5,13 @@
     state: latest
   with_items:
     - python34-devel
-    - python34-pip
+
+- include: install-pip.yml
+  when: ansible_os_family == 'RedHat'
 
 - name: Install esrally with pip on Redhat
   pip:
     name: esrally
-    executable: pip3.4
+    executable: pip3
 
 ...
