@@ -16,6 +16,6 @@ galaxy_info:
 
 dependencies:
   - geerlingguy.java
-  - shelleg.gradle
+  - rhevm-qe-automation.ansible-role-gradle
   - { role: 'geerlingguy.repo-epel', when: "ansible_os_family == 'Redhat'"}
 ...

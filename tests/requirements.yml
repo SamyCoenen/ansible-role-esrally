@@ -1,4 +1,4 @@
 ---
 - src: geerlingguy.java
 - src: geerlingguy.repo-epel
-- src: shelleg.gradle
+- src: rhevm-qe-automation.ansible-role-gradle

@@ -1,4 +1,8 @@
 ---
+- name: Update apt cache.
+  apt: update_cache=yes cache_valid_time=86400
+  when: "ansible_os_family == 'Debian'"
+  
 - name: Install gcc and git
   package:
     name: "{{ item }}"
@@ -31,14 +35,14 @@
     executable: pip3.4
   when: "ansible_os_family == 'Redhat'"
 
-# - name: Create rally config folder
-#   file:
-#     path: /root/.rally
-#     state: directory
-#     mode: 0755
-#
-# - name: Use correct config
-#   template:
-#     src: rally.ini.j2
-#     dest: /root/.rally/rally.ini
+- name: Create rally config folder
+  file:
+    path: /root/.rally
+    state: directory
+    mode: 0755
+
+- name: Use correct config
+  template:
+    src: rally.ini.j2
+    dest: /root/.rally/rally.ini
 ...
